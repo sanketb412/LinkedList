@@ -1,6 +1,6 @@
 package com.javapractice;
 
-public class MyNode<K> {
+public class MyNode<K> implements INode<K>{
     public static void main(String[] args) {
         System.out.println("Welcome");
     }
@@ -8,15 +8,26 @@ public class MyNode<K> {
     private MyNode next;
 
     public MyNode(K key) {
-        this.key = null;
+        this.key = key;
         this.next = null;
     }
 
-    public MyNode getNext() {
+
+    public K getKey() {
+        return key;
+    }
+
+
+    public void setKey(K key) {
+        this.key = key;
+    }
+
+    public INode getNext() {
         return next;
     }
 
-    public void setNext(MyNode next) {
-        this.next = next;
+    @Override
+    public void setNext(INode next) {
+        this.next = (MyNode<K>) next;
     }
 }
