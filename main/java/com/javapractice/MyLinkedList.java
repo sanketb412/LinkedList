@@ -61,4 +61,23 @@ public class MyLinkedList {
         return tempNode;
     }
 
+    public INode popLast() {
+        INode tempNode = head;
+        while (!tempNode.getNext().equals(tail)) {
+            tempNode = tempNode.getNext();
+        }
+        this.tail = tempNode;
+        tempNode = tempNode.getNext();
+        return tempNode;
+    }
+    public void printDelete() {
+        StringBuffer myNodes = new StringBuffer("My Nodes: ");
+        INode tempNode = head;
+        while (tempNode.getNext() != null) {
+            myNodes.append(tempNode.getKey());
+            if(!tempNode.equals(tail)) myNodes.append("->");
+            tempNode = tempNode.getNext();
+        }
+        System.out.println(myNodes);
+    }
 }
